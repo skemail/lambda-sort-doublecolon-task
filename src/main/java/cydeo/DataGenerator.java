@@ -28,6 +28,7 @@ public class DataGenerator {
     }
 
     public static void createAllCompanies() {
+        //COMPANY_LIST.add(new Company(0,"Bank of America",ADDRESS_LIST.get(8)));
         for (int i = 0; i < 10; i++) {
             COMPANY_LIST.add(new Company(i + 1, FAKER.company().name(), ADDRESS_LIST.get(i)));
         }
@@ -37,11 +38,13 @@ public class DataGenerator {
 
     public static void createAllEmployees() {
         for (int i = 0; i < 100; i++) {
-            EMPLOYEE_LIST.add(new Employee(i + 1, FAKER.name().fullName(), Gender.MALE, (new Random().nextInt(50)) + 20, COMPANY_LIST.get(new Random().nextInt(10))));
+            Gender gender = FAKER.gender().binaryTypes().equals("Female")?Gender.FEMALE:Gender.MALE;
+            EMPLOYEE_LIST.add(new Employee(i + 1, FAKER.name().fullName(), gender, (new Random().nextInt(50)) + 20, COMPANY_LIST.get(new Random().nextInt(10))));
         }
 
         System.out.println("***for checking your code - GET ALL EMPLOYEES***");
         EMPLOYEE_LIST.forEach(System.out::println);
+
     }
 
 }

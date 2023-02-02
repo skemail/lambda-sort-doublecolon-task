@@ -11,5 +11,5 @@ public class PromotedEmployee {
 
     private Role role;
     private Integer salary;
-    private PromotedEmployee promotedEmployee;
+    private Employee employee;
 }
